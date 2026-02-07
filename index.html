@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Planos de Aula</title>
+
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Container */
+    .planos {
+      max-width: 800px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Card */
+    .plano {
+      background-color: #ffffff;
+      border-left: 6px solid #4CAF50;
+      padding: 16px 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .plano:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Data */
+    .data {
+      display: inline-block;
+      background-color: #e0f2e9;
+      color: #2e7d32;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    /* Título */
+    h3 {
+      margin: 8px 0;
+      color: #333;
+    }
+
+    /* Texto */
+    p {
+      margin: 0;
+      color: #666;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>📚 Planos de Aula</h1>
+
+  <div class="planos" id="planos">
+
+    <div class="plano" data-data="2026-02-10">
+      <span class="data">10/02/2026</span>
+      <h3>Matemática</h3>
+      <p>Introdução às frações.</p>
+    </div>
+
+    <div class="plano" data-data="2026-02-05">
+      <span class="data">05/02/2026</span>
+      <h3>Português</h3>
+      <p>Interpretação de texto.</p>
+    </div>
+
+    <div class="plano" data-data="2026-02-01">
+      <span class="data">01/02/2026</span>
+      <h3>Ciências</h3>
+      <p>O ciclo da água.</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Ordenar planos por data (mais recente primeiro)
+    const container = document.getElementById("planos");
+    const planos = Array.from(container.getElementsByClassName("plano"));
+
+    planos.sort((a, b) => {
+      return new Date(a.dataset.data) - new Date(b.dataset.data);
+    });
+
+    planos.forEach(plano => container.appendChild(plano));
+  </script>
+
+</body>
+</html>
